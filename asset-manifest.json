@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/star-wars-people/static/css/main.d8b08567.chunk.css",
-    "main.js": "/star-wars-people/static/js/main.413fc922.chunk.js",
-    "main.js.map": "/star-wars-people/static/js/main.413fc922.chunk.js.map",
+    "main.css": "/star-wars-people/static/css/main.67abbfd8.chunk.css",
+    "main.js": "/star-wars-people/static/js/main.c02c9588.chunk.js",
+    "main.js.map": "/star-wars-people/static/js/main.c02c9588.chunk.js.map",
     "runtime-main.js": "/star-wars-people/static/js/runtime-main.e66a179e.js",
     "runtime-main.js.map": "/star-wars-people/static/js/runtime-main.e66a179e.js.map",
     "static/js/2.1e96c6d4.chunk.js": "/star-wars-people/static/js/2.1e96c6d4.chunk.js",
     "static/js/2.1e96c6d4.chunk.js.map": "/star-wars-people/static/js/2.1e96c6d4.chunk.js.map",
     "index.html": "/star-wars-people/index.html",
-    "precache-manifest.8204311813e7cbd2395c56d5d7551073.js": "/star-wars-people/precache-manifest.8204311813e7cbd2395c56d5d7551073.js",
+    "precache-manifest.bcb26c8da1ab8b31b4a6d722850f8660.js": "/star-wars-people/precache-manifest.bcb26c8da1ab8b31b4a6d722850f8660.js",
     "service-worker.js": "/star-wars-people/service-worker.js",
-    "static/css/main.d8b08567.chunk.css.map": "/star-wars-people/static/css/main.d8b08567.chunk.css.map"
+    "static/css/main.67abbfd8.chunk.css.map": "/star-wars-people/static/css/main.67abbfd8.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.e66a179e.js",
     "static/js/2.1e96c6d4.chunk.js",
-    "static/css/main.d8b08567.chunk.css",
-    "static/js/main.413fc922.chunk.js"
+    "static/css/main.67abbfd8.chunk.css",
+    "static/js/main.c02c9588.chunk.js"
   ]
 }
