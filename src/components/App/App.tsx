@@ -22,6 +22,7 @@ interface State {
   lowerLimit: number; // Lower limit for pagination
   upperLimit: number; // Upper Limit for pagination
   filteredPeople: string; // String for filtering people
+  noFilterMatches: boolean; // Flag if there are no filtered matches
   sortingOrder: string; // Selected sorting order
 }
 
@@ -60,6 +61,7 @@ export default class App extends React.Component<{}, State> {
     lowerLimit: 0,
     upperLimit: 10,
     filteredPeople: '',
+    noFilterMatches: false,
     sortingOrder: ''
   };
   async componentDidMount() {
@@ -247,6 +249,17 @@ export default class App extends React.Component<{}, State> {
             </select>
           </div>
         </div>
+
+        {!peopleToDisplay.length && (
+          <div className="no-matches">
+            <div className="icon">
+              <i className="fa fa-exclamation-circle fa-5x"></i>
+            </div>
+            <div className="message">
+              <p>There aren't any matches for your search.</p>
+            </div>
+          </div>
+        )}
 
         <div className="people">{peopleToDisplay}</div>
 
