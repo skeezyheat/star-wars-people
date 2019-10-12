@@ -5,6 +5,8 @@ import axios from 'axios';
 
 // components
 import Person from '../person/Person';
+import Loading from '../loading/Loading';
+import NoMatches from '../noMatches/NoMatches';
 
 // models
 import PersonModel from '../../models/Person';
@@ -22,7 +24,6 @@ interface State {
   lowerLimit: number; // Lower limit for pagination
   upperLimit: number; // Upper Limit for pagination
   filteredPeople: string; // String for filtering people
-  noFilterMatches: boolean; // Flag if there are no filtered matches
   sortingOrder: string; // Selected sorting order
 }
 
@@ -61,7 +62,6 @@ export default class App extends React.Component<{}, State> {
     lowerLimit: 0,
     upperLimit: 10,
     filteredPeople: '',
-    noFilterMatches: false,
     sortingOrder: ''
   };
   async componentDidMount() {
@@ -192,11 +192,7 @@ export default class App extends React.Component<{}, State> {
   render() {
     // If we're still loading data show the spinner
     if (this.state.isLoading) {
-      return (
-        <div className="is-loading">
-          <i className="fa fa-spinner fa-spin fa-5x fa-fw"></i>
-        </div>
-      );
+      return <Loading />;
     }
 
     // Current people to display on the screen
@@ -250,29 +246,19 @@ export default class App extends React.Component<{}, State> {
           </div>
         </div>
 
-        {!peopleToDisplay.length && (
-          <div className="no-matches">
-            <div className="icon">
-              <i className="fa fa-exclamation-circle fa-5x"></i>
-            </div>
-            <div className="message">
-              <p>There aren't any matches for your search.</p>
-            </div>
-          </div>
-        )}
+        {!peopleToDisplay.length && <NoMatches />}
 
         <div className="people">{peopleToDisplay}</div>
 
         <div className="pagination">
           <div className="back-button">
-            {this.state.lowerLimit !== 0 ? (
-              <button
-                className="button"
-                onClick={this.decreaseLimit.bind(this)}
-              >
-                Previous Page
-              </button>
-            ) : null}
+            <button
+              className="button"
+              disabled={this.state.lowerLimit === 0}
+              onClick={this.decreaseLimit.bind(this)}
+            >
+              Previous Page
+            </button>
           </div>
           <div className="current-page">
             <p>
@@ -280,14 +266,13 @@ export default class App extends React.Component<{}, State> {
             </p>
           </div>
           <div className="next-button">
-            {this.state.people.length !== this.state.upperLimit ? (
-              <button
-                className="button"
-                onClick={this.increaseLimit.bind(this)}
-              >
-                Next Page
-              </button>
-            ) : null}
+            <button
+              disabled={this.state.people.length === this.state.upperLimit}
+              className="button"
+              onClick={this.increaseLimit.bind(this)}
+            >
+              Next Page
+            </button>
           </div>
         </div>
       </div>
